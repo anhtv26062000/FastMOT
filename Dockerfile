@@ -1,4 +1,4 @@
-ARG TRT_IMAGE_VERSION=20.09
+ARG TRT_IMAGE_VERSION=21.05
 FROM nvcr.io/nvidia/tensorrt:${TRT_IMAGE_VERSION}-py3
 
 ARG TRT_IMAGE_VERSION
@@ -34,7 +34,8 @@ RUN apt-get -y update && \
     gstreamer1.0-plugins-ugly \
     libtbb2 libtbb-dev libdc1394-22-dev && \
     pip install -U --no-cache-dir setuptools pip && \
-    pip install --no-cache-dir numpy==1.18.0
+    pip install --no-cache-dir numpy==1.18.0 && \
+    pip install --no-cache-dir opencv-python
 
 # Build OpenCV
 WORKDIR ${HOME}
@@ -62,9 +63,9 @@ RUN cmake \
     -DWITH_TBB=ON \
     -DWITH_LIBV4L=ON \
     -DWITH_CUDA=OFF \
-    -DWITH_GSTREAMER=ON \
+    -DWITH_GSTREAMER=OFF \
     -DWITH_GSTREAMER_0_10=OFF \
-    -DWITH_FFMPEG=OFF .. && \
+    -DWITH_FFMPEG=ON .. && \
     make -j$(nproc) && \
     make install && \
     ldconfig && \

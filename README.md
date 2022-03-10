@@ -189,3 +189,7 @@ FastMOT also supports multi-class tracking. It is recommended to train a ReID ne
   url          = {https://doi.org/10.5281/zenodo.4294717}
 }
 ```
+# To Anh log
+Run "xhost +" before attaching container to visulize inside docker
+python app.py --mot -i test.mp4 -o test_res.avi --txt test_res.txt --show
+python app.py --mot -i 'rtsp://admin:sunshinetech436@192.168.0.17:554/cam/realmonitor?channel=1&subtype=0' --show

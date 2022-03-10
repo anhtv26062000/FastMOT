@@ -22,7 +22,7 @@
         },
         "yolo_detector_cfg": {
             "model": "YOLOv4",
-            "conf_thresh": 0.25,
+            "conf_thresh": 0.4,
             "nms_thresh": 0.5,
             "max_area": 800000,
             "min_aspect_ratio": 1.2
@@ -90,13 +90,13 @@
         },
 
         "visualizer_cfg": {
-            "draw_detections": false,
-            "draw_confidence": false,
+            "draw_detections": true,
+            "draw_confidence": true,
             "draw_covariance": false,
             "draw_klt": false,
             "draw_obj_flow": false,
             "draw_bg_flow": false,
-            "draw_trajectory": false
+            "draw_trajectory": true
 
         }
     }
